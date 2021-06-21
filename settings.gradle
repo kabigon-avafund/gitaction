@@ -1,0 +1,2 @@
+rootProject.name = "gitaction"
+include ':app'
