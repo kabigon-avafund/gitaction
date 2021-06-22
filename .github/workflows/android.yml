@@ -47,7 +47,7 @@ jobs:
       with:
         arguments: build
       id: gradle
-    - name: "Comment build scan url"
+    - name: Comment build scan url
       uses: actions/github-script@v3
       if: github.event_name == 'push' && failure()
       with:
