@@ -58,9 +58,9 @@ jobs:
             owner: context.repo.owner,
             repo: context.repo.repo,
             body: '❌ ${{ github.workflow }} failed'
-#            body: '❌ ${{ github.workflow }} failed: ${{ steps.gradle.outputs.build-scan-url }}'
           })
 
+#            body: '❌ ${{ github.workflow }} failed: ${{ steps.gradle.outputs.build-scan-url }}'
 #  apk:
 #
 #    runs-on: ubuntu-latest
