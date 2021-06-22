@@ -49,7 +49,7 @@ jobs:
       id: gradle
     - name: Comment build scan url
       uses: actions/github-script@v3
-      if: github.event_name == 'push' && failure()
+      if: github.event_name == 'pull_request' && failure()
       with:
         github-token: ${{secrets.GITHUB_TOKEN}}
         script: |
