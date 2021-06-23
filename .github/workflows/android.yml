@@ -7,25 +7,25 @@ on:
     branches: [ develop ]
 
 jobs:
-#  test:
-#
-#    runs-on: ubuntu-latest
-#
-#    steps:
-#    - name: Check out repo
-#      uses: actions/checkout@v2
-#    - name: set up JDK 11
-#      uses: actions/setup-java@v2
-#      with:
-#        java-version: '11'
-#        distribution: 'adopt'
-#
-#    - name: Grant execute permission for gradlew
-#      run: chmod +x gradlew
-#    - name: Unit tests
-#      uses: eskatos/gradle-command-action@v1
-#      with:
-#        arguments: test --stacktrace
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out repo
+      uses: actions/checkout@v2
+    - name: set up JDK 11
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+        distribution: 'adopt'
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+    - name: Unit tests
+      uses: eskatos/gradle-command-action@v1
+      with:
+        arguments: test --stacktrace
 
   build:
 
@@ -45,6 +45,10 @@ jobs:
     - name: Build with Gradle
       uses: eskatos/gradle-command-action@v1
       with:
+        gradle-version: current
+        wrapper-cache-enabled: true
+        dependencies-cache-enabled: true
+        configuration-cache-enabled: true
         arguments: build
       id: gradle
     - name: Comment build scan url
@@ -65,17 +69,24 @@ jobs:
 #    runs-on: ubuntu-latest
 #
 #    steps:
-#      - name: Check out repo
-#        uses: actions/checkout@v2
-#      - name: set up JDK 11
-#        uses: actions/setup-java@v2
-#        with:
-#          java-version: '11'
-#          distribution: 'adopt'
-#      - name: Build debug APK
-#        run: bash ./gradlew assembleDebug --stacktrace
-#      - name: Upload APK
-#        uses: actions/upload-artifact@v1
-#        with:
-#          name: app
-#          path: app/build/outputs/apk/debug/app-debug.apk
+#    - name: Check out repo
+#      uses: actions/checkout@v2
+#    - name: set up JDK 11
+#      uses: actions/setup-java@v2
+#      with:
+#        java-version: '11'
+#        distribution: 'adopt'
+#    - name: Build debug APK
+#      uses: eskatos/gradle-command-action@v1
+#      with:
+#        gradle-version: current
+#        wrapper-cache-enabled: true
+#        dependencies-cache-enabled: true
+#        configuration-cache-enabled: true
+#        arguments: assembleDebug --stacktrace
+#      id: gradle
+#    - name: Upload APK
+#      uses: actions/upload-artifact@v1
+#      with:
+#        name: app
+#        path: app/build/outputs/apk/debug/app-debug.apk
