@@ -22,6 +22,14 @@ jobs:
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
+    - name: Check Scan
+      uses: eskatos/gradle-command-action@v1
+      with:
+        arguments: check --scan
+    - name: Lint
+      uses: eskatos/gradle-command-action@v1
+      with:
+        arguments: lint
     - name: Unit tests
       uses: eskatos/gradle-command-action@v1
       with:
