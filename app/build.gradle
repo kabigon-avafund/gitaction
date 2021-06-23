@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id("org.nosphere.gradle.github.actions") version "1.2.0"
 }
 
 android {
@@ -28,6 +29,11 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+
+    githubActions.buildScan {
+        autoTag.set(true)
+        autoTagPrefix.set("ga:")
     }
 }
 
