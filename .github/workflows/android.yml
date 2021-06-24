@@ -100,7 +100,7 @@ jobs:
         appId: ${{secrets.FIREBASE_APP_ID}}
         token: ${{secrets.FIREBASE_TOKEN}}
         groups: testers
-        file: app/build/outputs/apk/release/app-release-unsigned.apk
+        file: app/build/outputs/apk/release/app-debug.apk
 #    - name: Upload APK
 #      uses: actions/upload-artifact@v1
 #      with:
