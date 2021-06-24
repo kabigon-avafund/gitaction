@@ -99,7 +99,7 @@ jobs:
       with:
         appId: ${{secrets.FIREBASE_APP_ID}}
         token: ${{secrets.FIREBASE_TOKEN}}
-        groups: testers
+        groups: tester
         file: app/build/outputs/apk/debug/app-debug.apk
 #    - name: Upload APK
 #      uses: actions/upload-artifact@v1
