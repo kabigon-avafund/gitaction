@@ -35,3 +35,4 @@ jobs:
         token: ${{secrets.FIREBASE_TOKEN}}
         groups: tester
         file: app/build/outputs/apk/debug/app-debug.apk
+        releaseNotesFile: README.md
