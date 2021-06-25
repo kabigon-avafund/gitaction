@@ -29,6 +29,9 @@ jobs:
       uses: eskatos/gradle-command-action@v1
       with:
         arguments: test --stacktrace
+    - uses: eskatos/gradle-command-action@v1
+      with:
+        arguments: build
       id: gradle
     - name: Git reply with error message
       uses: actions/github-script@v3
