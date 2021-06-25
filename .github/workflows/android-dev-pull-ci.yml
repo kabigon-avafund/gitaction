@@ -41,3 +41,7 @@ jobs:
             repo: context.repo.repo,
             body: '❌ ${{ github.workflow }} failed: ${{ steps.gradle.outputs.build-scan-url }}'
           })
+    - name: View context attributes
+      uses: actions/github-script@v4
+      with:
+        script: console.log(context)
