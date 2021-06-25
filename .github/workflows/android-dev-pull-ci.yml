@@ -29,6 +29,10 @@ jobs:
       uses: eskatos/gradle-command-action@v1
       with:
         arguments: test --stacktrace
+    - name: View context attributes
+      uses: actions/github-script@v4
+      with:
+        script: console.log(context)
     - name: Git reply with error message
       uses: actions/github-script@v3
       if: github.event_name == 'pull_request' && failure()
@@ -41,7 +45,3 @@ jobs:
             repo: context.repo.repo,
             body: '❌ ${{ github.workflow }} failed: ${{ steps.gradle.outputs.build-scan-url }}'
           })
-    - name: View context attributes
-      uses: actions/github-script@v4
-      with:
-        script: console.log(context)
